@@ -5,6 +5,7 @@ pipeline {
       agent any
       steps {
         sh 'terraform init'
+        sh 'terraform destroy -var="token=$DIGITAL" -var="ssh-key=$SSHKEY" -var="priv-key=$PRIVATEKEY" --auto-approve'
       }
     }
     stage('terraform destroy') {
