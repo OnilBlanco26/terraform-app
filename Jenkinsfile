@@ -4,7 +4,7 @@ pipeline {
     stage('terraform init') {
       agent any
       steps {
-        sh 'terraform init'
+        sh 'terraform init -backend-config=backend.tf'
         sh 'terraform destroy -var="token=$DIGITAL" -var="ssh-key=$SSHKEY" --auto-approve'
         sh 'terraform apply -var="token=$DIGITAL" -var="ssh-key=$SSHKEY" --auto-approve'
       }
