@@ -24,7 +24,7 @@ pipeline {
     stage('terraform build') {
       agent any
       steps {
-        sh 'terraform apply -var="token=$DIGITAL" -var="ssh-key=$SSHKEY" -var="priv-key=$PRIVATEKEY" --auto-approve'
+        sh 'terraform apply -var="token=$DIGITAL" -var="ssh-key=$SSHKEY" -var="priv-key=$PRIVATEKEY" --auto-approve' 
       }
     }
   }
