@@ -14,5 +14,6 @@ pipeline {
   }
   environment {
     DIGITAL = credentials('DIGITAL-TOKEN')
+    SSHKEY = credentials('SSHKEY-TOKEN')
   }
 }
