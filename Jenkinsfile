@@ -14,7 +14,7 @@ pipeline {
       steps {
         sh 'terraform init'
       }
-    }  
+    }
     stage('terraform destroy') {
       agent any
       steps {
