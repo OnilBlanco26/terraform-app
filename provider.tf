@@ -6,9 +6,6 @@ terraform {
       version = "2.21.0"
     }
   }
-  backend "local" {
-    path = "$JENKINS_HOME/terraform/terraform.tfstate"
-  }
 }
 variable "token" {
   type    =   string
