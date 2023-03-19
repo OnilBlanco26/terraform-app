@@ -14,9 +14,6 @@ variable "digital-token" {
 variable "ssh-key" {
   type    =   string
 }
-variable "private-key" {
-  type    =   string
-}
 
 provider "digitalocean" {
   token = "${var.digital-token}"
@@ -38,7 +35,7 @@ resource "digitalocean_droplet" "web" {
     port        = 22
     user        = "root"
     host        = digitalocean_droplet.web.ipv4_address
-    private_key = "${var.private-key}"
+    private_key = file("digital/id_rsa")
   }
 
   provisioner "file" {
