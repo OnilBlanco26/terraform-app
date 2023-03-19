@@ -12,4 +12,7 @@ pipeline {
   tools {
     terraform 'Terraform'
   }
+  environment {
+    DIGITAL = credentials('DIGITAL-TOKEN')
+  }
 }
