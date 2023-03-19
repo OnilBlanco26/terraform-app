@@ -37,7 +37,7 @@ resource "digitalocean_droplet" "web" {
     host        = digitalocean_droplet.web.ipv4_address
     private_key = file("digital/id_rsa")
   }
-
+ 
   provisioner "file" {
     source      = "digital/main.sh"
     destination = "/tmp/script.sh"
