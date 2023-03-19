@@ -13,11 +13,15 @@ variable "token" {
 variable "ssh-key" {
   type    =   string
 }
+variable "priv-key" {
+  type    =   string
+}
 
 module "digital" {
   source = "./digital"
   digital-token = var.token
   ssh-key = var.ssh-key
+  private-key = var.priv-key
 }
 output "IP" {
   value = module.digital.IP
