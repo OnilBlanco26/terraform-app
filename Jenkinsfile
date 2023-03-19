@@ -6,12 +6,14 @@ pipeline {
       steps {
         sh 'mkdir -p $JENKINS_HOME/terraform && touch $JENKINS_HOME/terraform/terraform.tfstate'
         sh 'terraform init'
-        sh 'terraform destroy -var="token=$DIGITAL" -var="ssh-key=$SSHKEY" --auto-approve'
         sh 'terraform apply -var="token=$DIGITAL" -var="ssh-key=$SSHKEY" --auto-approve'
       }
     }
-  
-
+  }
+  post {
+    always {
+      sh 'terraform destroy -var="token=$DIGITAL" -var="ssh-key=$SSHKEY" --auto-approve'
+    }
   }
   tools {
     terraform 'Terraform'
