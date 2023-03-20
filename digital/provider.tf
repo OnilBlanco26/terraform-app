@@ -21,6 +21,7 @@ provider "digitalocean" {
 }
 
 
+
 # # Create a new Web Droplet in the nyc2 region
 resource "digitalocean_droplet" "web" {
   image    = "ubuntu-22-04-x64"
