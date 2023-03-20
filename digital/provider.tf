@@ -56,6 +56,3 @@ resource "digitalocean_droplet" "web" {
 output "IP" {
   value = digitalocean_droplet.web.ipv4_address
 }
-  
-
-  
