@@ -1,25 +1,18 @@
 pipeline {
-  agent {
-    label 'terraform'
-  }
+  agent any
   stages {
     stage('terraform init') {
+      agent any
       steps {
         sh 'terraform init'
-      }
-    }
-    stage('terraform destroy') {
-      steps {
         sh 'terraform destroy -var="token=$DIGITAL" -var="ssh-key=$SSHKEY" --auto-approve'
-      }
-    }
-    stage('terraform apply') {
-      steps {
-        input message: '¿Estás seguro que quieres aplicar los cambios?', ok: 'Sí'
         sh 'terraform apply -var="token=$DIGITAL" -var="ssh-key=$SSHKEY" --auto-approve'
       }
     }
   }
+ 
+ 
+   
   tools {
     terraform 'Terraform'
   }
@@ -28,4 +21,3 @@ pipeline {
     SSHKEY = credentials('SSHKEY')
   }
 }
- 
