@@ -5,14 +5,13 @@ pipeline {
       agent any
       steps {
         sh 'terraform init -backend-config="path=$JENKINS_HOME/terraform/terraform.tfstate"'
-        sh 'terraform init'
         sh 'terraform destroy -var="token=$DIGITAL" -var="ssh-key=$SSHKEY" --auto-approve'
         sh 'terraform apply -var="token=$DIGITAL" -var="ssh-key=$SSHKEY" --auto-approve'
         sh 'ls'
       }
     }
   }
-  
+
   tools {
     terraform 'Terraform'
   }
