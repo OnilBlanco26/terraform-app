@@ -10,9 +10,7 @@ pipeline {
       }
     }
   }
- 
- 
-   
+  
   tools {
     terraform 'Terraform'
   }
